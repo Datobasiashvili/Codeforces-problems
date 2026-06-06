@@ -6,12 +6,21 @@ int main(){
     cin >> a >> b;
     cin >> c >> d;
 
-    if((a % 2 == 0 && b % 2 == 0) && (c % 2 == 0 && d % 2 == 0)){
+    int num = 100;
+    unordered_set<int> ricks_times;
 
-    } else if ((a % 2 != 0 && b % 2 == 0) && (c % 2 != 0 && d % 2 == 0)){
-        
-    } else {
-        cout << -1;
-        return 0;
+    for (int i = 0; i < num; i++){
+        ricks_times.insert(b+i*a);
+    }    
+
+    for (int i = 0; i < num; i++){
+        int mortys_times = d+i*c;
+
+        if (ricks_times.count(mortys_times)){
+            cout << mortys_times << endl;
+            return 0;
+        }
     }
+    cout << -1;
+    return 0;
 }
